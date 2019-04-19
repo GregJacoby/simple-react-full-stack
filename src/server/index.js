@@ -1,5 +1,18 @@
 const express = require('express');
 const os = require('os');
+const upload = require("./upload");
+const cors = require("cors");
+const fileUpload = require('express-fileupload');
+
+
+var corsOptions = {
+  origin: "*",
+  optionsSuccessStatus: 200
+};
+
+server.use(cors(corsOptions));
+
+server.post("/upload", upload);
 
 const app = express();
 
