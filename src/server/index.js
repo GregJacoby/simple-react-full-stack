@@ -3,18 +3,18 @@ const os = require('os');
 const upload = require("./upload");
 const cors = require("cors");
 const fileUpload = require('express-fileupload');
-
+const app = express();
 
 var corsOptions = {
   origin: "*",
   optionsSuccessStatus: 200
 };
 
-server.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
-server.post("/upload", upload);
+app.post("/upload", upload);
 
-const app = express();
+
 
 app.use(express.static('dist'));
 app.get('/api/getUsername', (req, res) => res.send({ username: os.userInfo().username }));
